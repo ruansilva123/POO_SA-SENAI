@@ -17,8 +17,7 @@ CREATE TABLE competitions(
 
 CREATE TABLE matches(
     id_match SERIAL PRIMARY KEY,
-    date_match DATE NOT NULL,
-    time_match TIME NOT NULL,
+    date_match DATETIME NOT NULL,
     home_team_goals INTEGER NOT NULL,
     away_team_goals INTEGER NOT NULL,
     home_team_id INTEGER NOT NULL,
