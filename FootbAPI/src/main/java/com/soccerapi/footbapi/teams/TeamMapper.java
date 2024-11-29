@@ -1,5 +1,4 @@
 package com.soccerapi.footbapi.teams;
 
-public class Repositories {
-    
+public class TeamMapper {
 }
