@@ -1,22 +1,17 @@
 package com.soccerapi.footbapi.teams;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 
 @Entity
-public class Team {
+public class TeamDTO {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name_team;
 
-    public Team() {
+    public TeamDTO() {
     }
 
-    public Team(Long id, String name_team) {
+    public TeamDTO(Long id, String name_team) {
         this.id = id;
         this.name_team = name_team;
     }
