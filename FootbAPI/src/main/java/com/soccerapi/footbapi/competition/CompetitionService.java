@@ -31,7 +31,7 @@ public class CompetitionService {
 
     public List<CompetitionDTO> searchByCompetitionName(String competitionName){
         List<Competition> competitions = iCompetitionRepository
-                .findByNameCompetitionStartingWith(competitionName);
+                .searchNameCompetition(competitionName);
         return competitions.stream().map(CompetitionMapper::toDTO).collect(Collectors.toList());
     }
 }
