@@ -69,4 +69,35 @@ public class CompetitionController {
                     .body(new ErrorMessageResponse("Error to find competition!"));
         }
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteCompetition(@PathVariable Long id){
+        try{
+            CompetitionDTO competitionDTO = competitionService.readCompetition(id);
+            competitionService.deleteCompetition(competitionDTO);
+            return ResponseEntity.noContent().build();
+        } catch (EntityNotFoundException exception) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorMessageResponse(exception.getMessage()));
+        } catch (Exception exception) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to delete competition!"));
+        }
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> putCompetition(@PathVariable Long id, @RequestBody CompetitionDTO competitionDTO){
+        try{
+            CompetitionDTO currentCompetition = competitionService.readCompetition(id);
+            currentCompetition = competitionService.updateCompetition(currentCompetition, competitionDTO);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new SuccessObjectResponse(currentCompetition));
+        } catch (EntityNotFoundException exception) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorMessageResponse(exception.getMessage()));
+        } catch (Exception exception) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to delete competition!"));
+        }
+    }
 }

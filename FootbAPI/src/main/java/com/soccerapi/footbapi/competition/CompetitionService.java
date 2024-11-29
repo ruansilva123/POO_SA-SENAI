@@ -34,4 +34,15 @@ public class CompetitionService {
                 .searchNameCompetition(competitionName);
         return competitions.stream().map(CompetitionMapper::toDTO).collect(Collectors.toList());
     }
+
+    public void deleteCompetition(CompetitionDTO competitionDTO){
+        iCompetitionRepository.delete(CompetitionMapper.toCompetion(competitionDTO));
+    }
+
+    public CompetitionDTO updateCompetition(CompetitionDTO currentCompetition, CompetitionDTO futureCompetition){
+        Competition competition = CompetitionMapper.toCompetion(currentCompetition);
+        competition.setNameCompetition(futureCompetition.getNameCompetition());
+        competition = iCompetitionRepository.save(competition);
+        return CompetitionMapper.toDTO(competition);
+    }
 }
