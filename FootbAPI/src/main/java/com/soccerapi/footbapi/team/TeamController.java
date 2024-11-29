@@ -3,6 +3,7 @@ package com.soccerapi.footbapi.team;
 import com.soccerapi.footbapi.competition.Competition;
 import com.soccerapi.footbapi.responses.errors.ErrorMessageResponse;
 import com.soccerapi.footbapi.responses.success.SuccessListObjectsResponse;
+import com.soccerapi.footbapi.responses.success.SuccessMessageResponse;
 import com.soccerapi.footbapi.responses.success.SuccessObjectAndMessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -52,6 +53,30 @@ public class TeamController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ErrorMessageResponse("Error to get this team, "+e.getMessage()));
+        }
+    }
+
+    @PutMapping("edit/{id}/")
+    public ResponseEntity<?> putTeam(@PathVariable Long id, @RequestBody TeamDTO teamDTO){
+        try{
+            TeamDTO team = teamService.editTeam(id, teamDTO);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new SuccessObjectAndMessageResponse("Team edited successfully!", team));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to edit this team, "+e.getMessage()));
+        }
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<?> deleteTeam(@PathVariable Long id){
+        try{
+            teamService.deleteTeam(id);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new SuccessMessageResponse("Team delete successfully!"));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to delete this team, "+e.getMessage()));
         }
     }
 
