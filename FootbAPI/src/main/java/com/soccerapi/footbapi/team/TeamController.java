@@ -1,0 +1,58 @@
+package com.soccerapi.footbapi.team;
+
+import com.soccerapi.footbapi.competition.Competition;
+import com.soccerapi.footbapi.responses.errors.ErrorMessageResponse;
+import com.soccerapi.footbapi.responses.success.SuccessListObjectsResponse;
+import com.soccerapi.footbapi.responses.success.SuccessObjectAndMessageResponse;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+
+@RestController
+@RequestMapping("teams/")
+public class TeamController {
+
+    @Autowired
+    TeamService teamService;
+
+    @PostMapping
+    public ResponseEntity<?> postTeam(@RequestBody TeamDTO teamDTO){
+        try{
+            TeamDTO team = teamService.createTeam(teamDTO);
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new SuccessObjectAndMessageResponse("Team created successfully!", team));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to create team!"));
+        }
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getTeams(){
+        try{
+            List<TeamDTO> teamDTO = teamService.readTeams();
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body(new SuccessListObjectsResponse<>(teamDTO));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Erro to list teams!"));
+        }
+    }
+
+    @GetMapping("search/")
+    public ResponseEntity<?> searchTeamByName(@RequestBody String nameTeam){
+        try{
+            System.out.println("Time: "+nameTeam);
+            List<TeamDTO> teams = teamService.readTeamByName(nameTeam);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new SuccessListObjectsResponse<>(teams));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to get this team, "+e.getMessage()));
+        }
+    }
+
+}
