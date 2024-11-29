@@ -11,13 +11,13 @@ SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,N
 -- -----------------------------------------------------
 -- Schema mydb
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `mydb` DEFAULT CHARACTER SET utf8 ;
-USE `mydb` ;
+CREATE SCHEMA IF NOT EXISTS `footbapi` DEFAULT CHARACTER SET utf8 ;
+USE `footbapi` ;
 
 -- -----------------------------------------------------
 -- Table `mydb`.`Teams`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Teams` (
+CREATE TABLE IF NOT EXISTS `footbapi`.`Teams` (
   `id_team` INT NOT NULL AUTO_INCREMENT,
   `name_team` VARCHAR(80) NOT NULL,
   PRIMARY KEY (`id_team`))
@@ -27,7 +27,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Player`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Player` (
+CREATE TABLE IF NOT EXISTS `footbapi`.`Player` (
   `id_player` INT NOT NULL AUTO_INCREMENT,
   `name_player` VARCHAR(50) NOT NULL,
   `Teams_id_team` INT NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Player` (
   INDEX `fk_Player_Teams_idx` (`Teams_id_team` ASC) VISIBLE,
   CONSTRAINT `fk_Player_Teams`
     FOREIGN KEY (`Teams_id_team`)
-    REFERENCES `mydb`.`Teams` (`id_team`)
+    REFERENCES `footbapi`.`Teams` (`id_team`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
@@ -44,7 +44,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Competitions`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Competitions` (
+CREATE TABLE IF NOT EXISTS `footbapi`.`Competitions` (
   `id_competition` INT NOT NULL AUTO_INCREMENT,
   `name_competition` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id_competition`))
@@ -54,7 +54,7 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 -- Table `mydb`.`Match`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `mydb`.`Match` (
+CREATE TABLE IF NOT EXISTS `footbapi`.`Match` (
   `id_match` INT NOT NULL AUTO_INCREMENT,
   `fk_competition` INT NOT NULL,
   `fk_home_team` INT NOT NULL,
@@ -68,17 +68,17 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Match` (
   INDEX `fk_away_team_idx` (`fk_away_team` ASC) VISIBLE,
   CONSTRAINT `fk_Competitions_has_Teams_Competitions1`
     FOREIGN KEY (`fk_competition`)
-    REFERENCES `mydb`.`Competitions` (`id_competition`)
+    REFERENCES `footbapi`.`Competitions` (`id_competition`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Competitions_has_Teams_Teams1`
     FOREIGN KEY (`fk_home_team`)
-    REFERENCES `mydb`.`Teams` (`id_team`)
+    REFERENCES `footbapi`.`Teams` (`id_team`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_away_team`
     FOREIGN KEY (`fk_away_team`)
-    REFERENCES `mydb`.`Teams` (`id_team`)
+    REFERENCES `footbapi`.`Teams` (`id_team`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB;
