@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 @RestController
 @RequestMapping("teams/")
@@ -39,6 +40,18 @@ public class TeamController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ErrorMessageResponse("Erro to list teams!"));
+        }
+    }
+
+    @GetMapping("{id}")
+    public ResponseEntity<?> getTeam(@PathVariable Long id){
+        try{
+            TeamDTO team = teamService.readTeam(id);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new SuccessObjectAndMessageResponse("Success to get "+team.getNameTeam(), team));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND)
+                    .body(new ErrorMessageResponse("Error to get the team, "+e.getMessage()));
         }
     }
 
