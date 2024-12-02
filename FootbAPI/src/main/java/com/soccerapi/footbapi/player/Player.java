@@ -14,7 +14,7 @@ public class Player {
     private Long id;
     private String namePlayer;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Team team;
 
     public Player() {
