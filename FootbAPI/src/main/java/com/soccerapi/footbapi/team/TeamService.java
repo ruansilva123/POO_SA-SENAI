@@ -32,7 +32,7 @@ public class TeamService {
     public void deleteTeam(Long id){
         teamRepository.deleteById(id);
     }
-
+    /*
     public TeamDTO editTeam(Long id, TeamDTO teamDTO){
         Optional<TeamDTO> existTeam =  TeamMapper.toDTO(teamRepository.findById(id))
                 .orElseThrow(() -> new EntityNotFoundException());
@@ -43,4 +43,5 @@ public class TeamService {
             team.setNameTeam(teamDTO.getNameTeam());
         }
     }
+     */
 }

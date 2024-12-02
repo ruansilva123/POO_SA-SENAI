@@ -73,8 +73,7 @@ public class CompetitionController {
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteCompetition(@PathVariable Long id){
         try{
-            CompetitionDTO competitionDTO = competitionService.readCompetition(id);
-            competitionService.deleteCompetition(competitionDTO);
+            competitionService.deleteCompetition(id);
             return ResponseEntity.noContent().build();
         } catch (EntityNotFoundException exception) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
@@ -88,8 +87,7 @@ public class CompetitionController {
     @PutMapping("/{id}")
     public ResponseEntity<?> putCompetition(@PathVariable Long id, @RequestBody CompetitionDTO competitionDTO){
         try{
-            CompetitionDTO currentCompetition = competitionService.readCompetition(id);
-            currentCompetition = competitionService.updateCompetition(currentCompetition, competitionDTO);
+            CompetitionDTO currentCompetition = competitionService.updateCompetition(id, competitionDTO);
             return ResponseEntity.status(HttpStatus.OK)
                     .body(new SuccessObjectResponse(currentCompetition));
         } catch (EntityNotFoundException exception) {

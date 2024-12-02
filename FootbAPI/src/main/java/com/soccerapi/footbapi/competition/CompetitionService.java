@@ -23,8 +23,8 @@ public class CompetitionService {
         return competitions.stream().map(CompetitionMapper::toDTO).collect(Collectors.toList());
     }
 
-    public CompetitionDTO readCompetition(Long competition_id){
-        Competition competition = iCompetitionRepository.findById(competition_id)
+    public CompetitionDTO readCompetition(Long competitionId){
+        Competition competition = iCompetitionRepository.findById(competitionId)
                 .orElseThrow(() -> new EntityNotFoundException("Competition not found!"));
         return CompetitionMapper.toDTO(competition);
     }
@@ -35,12 +35,16 @@ public class CompetitionService {
         return competitions.stream().map(CompetitionMapper::toDTO).collect(Collectors.toList());
     }
 
-    public void deleteCompetition(CompetitionDTO competitionDTO){
-        iCompetitionRepository.delete(CompetitionMapper.toCompetion(competitionDTO));
+    public void deleteCompetition(Long competitionId){
+        if(!iCompetitionRepository.existsById(competitionId)){
+            throw new EntityNotFoundException("Competition not found!");
+        }
+        iCompetitionRepository.deleteById(competitionId);
     }
 
-    public CompetitionDTO updateCompetition(CompetitionDTO currentCompetition, CompetitionDTO futureCompetition){
-        Competition competition = CompetitionMapper.toCompetion(currentCompetition);
+    public CompetitionDTO updateCompetition(Long competitionId, CompetitionDTO futureCompetition){
+        Competition competition = iCompetitionRepository.findById(competitionId)
+                .orElseThrow(() -> new EntityNotFoundException("Competition not found!"));
         competition.setNameCompetition(futureCompetition.getNameCompetition());
         competition = iCompetitionRepository.save(competition);
         return CompetitionMapper.toDTO(competition);
