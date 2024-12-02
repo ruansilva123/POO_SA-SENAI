@@ -1,4 +1,4 @@
-package com.soccerapi.footbapi.responses;
+package com.soccerapi.footbapi.utils.responses;
 
 public abstract class BaseMessage {
 

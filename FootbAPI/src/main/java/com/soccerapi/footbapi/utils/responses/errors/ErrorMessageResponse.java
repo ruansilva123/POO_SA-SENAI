@@ -1,6 +1,6 @@
-package com.soccerapi.footbapi.responses.errors;
+package com.soccerapi.footbapi.utils.responses.errors;
 
-import com.soccerapi.footbapi.responses.BaseMessage;
+import com.soccerapi.footbapi.utils.responses.BaseMessage;
 
 public class ErrorMessageResponse extends BaseMessage {
 

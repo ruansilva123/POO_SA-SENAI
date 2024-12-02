@@ -1,9 +1,9 @@
 package com.soccerapi.footbapi.competition;
 
-import com.soccerapi.footbapi.responses.errors.ErrorMessageResponse;
-import com.soccerapi.footbapi.responses.success.SuccessListObjectsResponse;
-import com.soccerapi.footbapi.responses.success.SuccessObjectAndMessageResponse;
-import com.soccerapi.footbapi.responses.success.SuccessObjectResponse;
+import com.soccerapi.footbapi.utils.responses.errors.ErrorMessageResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessListObjectsResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessObjectAndMessageResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessObjectResponse;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

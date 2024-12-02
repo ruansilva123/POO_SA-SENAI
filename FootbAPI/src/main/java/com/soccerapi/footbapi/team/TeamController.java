@@ -1,10 +1,9 @@
 package com.soccerapi.footbapi.team;
 
-import com.soccerapi.footbapi.competition.Competition;
-import com.soccerapi.footbapi.responses.errors.ErrorMessageResponse;
-import com.soccerapi.footbapi.responses.success.SuccessListObjectsResponse;
-import com.soccerapi.footbapi.responses.success.SuccessMessageResponse;
-import com.soccerapi.footbapi.responses.success.SuccessObjectAndMessageResponse;
+import com.soccerapi.footbapi.utils.responses.errors.ErrorMessageResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessListObjectsResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessMessageResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessObjectAndMessageResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

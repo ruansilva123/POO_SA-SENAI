@@ -1,6 +1,6 @@
-package com.soccerapi.footbapi.responses.success;
+package com.soccerapi.footbapi.utils.responses.success;
 
-import com.soccerapi.footbapi.responses.BaseMessage;
+import com.soccerapi.footbapi.utils.responses.BaseMessage;
 
 public class SuccessObjectAndMessageResponse extends BaseMessage {
 

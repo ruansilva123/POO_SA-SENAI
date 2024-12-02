@@ -1,4 +1,4 @@
-package com.soccerapi.footbapi.responses.success;
+package com.soccerapi.footbapi.utils.responses.success;
 
 public class SuccessObjectResponse {
 
