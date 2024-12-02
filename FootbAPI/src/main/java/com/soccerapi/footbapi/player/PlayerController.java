@@ -1,10 +1,10 @@
 package com.soccerapi.footbapi.player;
 
-import com.soccerapi.footbapi.responses.BaseMessage;
-import com.soccerapi.footbapi.responses.errors.ErrorMessageResponse;
-import com.soccerapi.footbapi.responses.success.SuccessListObjectsResponse;
-import com.soccerapi.footbapi.responses.success.SuccessMessageResponse;
-import com.soccerapi.footbapi.responses.success.SuccessObjectAndMessageResponse;
+import com.soccerapi.footbapi.utils.responses.BaseMessage;
+import com.soccerapi.footbapi.utils.responses.errors.ErrorMessageResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessListObjectsResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessMessageResponse;
+import com.soccerapi.footbapi.utils.responses.success.SuccessObjectAndMessageResponse;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -29,7 +29,6 @@ public class PlayerController {
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body(new SuccessObjectAndMessageResponse(
                             "Player "+playerDTO.getNamePlayer(), player)
-
                     );
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
