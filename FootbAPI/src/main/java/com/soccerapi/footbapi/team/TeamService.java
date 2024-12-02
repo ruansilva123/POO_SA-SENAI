@@ -1,5 +1,6 @@
 package com.soccerapi.footbapi.team;
 
+import jakarta.persistence.EntityExistsException;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,19 +30,20 @@ public class TeamService {
         return teams.stream().map(TeamMapper::toDTO).collect(Collectors.toList());
     }
 
-    public void deleteTeam(Long id){
-        teamRepository.deleteById(id);
-    }
-    /*
     public TeamDTO editTeam(Long id, TeamDTO teamDTO){
-        Optional<TeamDTO> existTeam =  TeamMapper.toDTO(teamRepository.findById(id))
-                .orElseThrow(() -> new EntityNotFoundException());
+        TeamDTO existTeam =  TeamMapper.toDTO(teamRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new));
 
-        if(existTeam.isPresent()){
-            Team team = TeamMapper.toTeam(existTeam.get());
-            team.setId(teamDTO.getId());
-            team.setNameTeam(teamDTO.getNameTeam());
-        }
+        existTeam.setNameTeam(teamDTO.getNameTeam());
+        System.out.println("Nome do time: "+existTeam.getNameTeam());
+        teamRepository.save(TeamMapper.toTeam(existTeam));
+        return existTeam;
     }
-     */
+
+    public void deleteTeam(Long id) {
+       if(!teamRepository.existsById(id)){
+            throw new EntityExistsException("Team not found!");
+       }
+       teamRepository.deleteById(id);
+    }
 }
