@@ -14,7 +14,7 @@ public class CompetitionService {
     ICompetitionRepository iCompetitionRepository;
 
     public CompetitionDTO createCompetition(CompetitionDTO competitionDTO){
-        Competition competition = iCompetitionRepository.save(CompetitionMapper.toCompetion(competitionDTO));
+        Competition competition = iCompetitionRepository.save(CompetitionMapper.toCompetition(competitionDTO));
         return CompetitionMapper.toDTO(competition);
     }
 

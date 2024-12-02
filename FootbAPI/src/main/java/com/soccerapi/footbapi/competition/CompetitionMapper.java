@@ -9,7 +9,7 @@ public class CompetitionMapper {
         );
     }
 
-    public static Competition toCompetion(CompetitionDTO competitionDTO){
+    public static Competition toCompetition(CompetitionDTO competitionDTO){
         return new Competition(
           competitionDTO.getIdCompetition(),
           competitionDTO.getNameCompetition()
