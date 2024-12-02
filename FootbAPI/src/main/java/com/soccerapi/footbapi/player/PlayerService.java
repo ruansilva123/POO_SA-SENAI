@@ -4,6 +4,7 @@ import com.soccerapi.footbapi.team.ITeamRepository;
 import com.soccerapi.footbapi.team.Team;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +34,22 @@ public class PlayerService {
         Player player = playerRepository.findById(id)
                 .orElseThrow(() -> new EntityNotFoundException("Player not found!"));
 
+        return PlayerMapper.toDTO(player);
+    }
+
+    public PlayerDTO editPlayer(Long id, PlayerDTO playerDTO){
+        System.out.println("\nId: "+id);
+
+        Player player = playerRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found!"));
+
+        Team team = teamRepository.findById(playerDTO.getTeam())
+                .orElseThrow(() -> new EntityNotFoundException("Team not found!"));
+
+        player.setNamePlayer(playerDTO.getNamePlayer());
+        System.out.println("Player name: "+playerDTO.getNamePlayer());
+        player.setTeam(team);
+        playerRepository.save(player);
         return PlayerMapper.toDTO(player);
     }
 }

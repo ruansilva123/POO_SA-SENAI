@@ -6,6 +6,7 @@ import com.soccerapi.footbapi.responses.success.SuccessObjectAndMessageResponse;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
@@ -56,6 +57,19 @@ public class PlayerController {
         }catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
                     .body(new ErrorMessageResponse("Error to get player, "+e.getMessage()));
+        }
+    }
+
+    @PutMapping("edit/{id}/")
+    public ResponseEntity<?> putPlayer(@PathVariable Long id, @RequestBody PlayerDTO playerDTO){
+        try{
+            PlayerDTO player = playerService.editPlayer(id, playerDTO);
+            return ResponseEntity.status(HttpStatus.OK)
+                    .body(new SuccessObjectAndMessageResponse(
+                            "Success to edit: "+player.getNamePlayer(), player));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body(new ErrorMessageResponse("Error to edit player, "+e.getMessage()));
         }
     }
 }
