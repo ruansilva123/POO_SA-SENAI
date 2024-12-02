@@ -1,6 +1,9 @@
 package com.soccerapi.footbapi.team;
 
+import com.soccerapi.footbapi.player.Player;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "teams")
@@ -10,6 +13,9 @@ public class Team {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nameTeam;
+
+    @OneToMany(mappedBy = "team")
+    private List<Player> players;
 
     public Team() {
     }
