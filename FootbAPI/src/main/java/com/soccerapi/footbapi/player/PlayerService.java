@@ -6,6 +6,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class PlayerService {
 
@@ -20,6 +22,17 @@ public class PlayerService {
                         .orElseThrow(() -> new EntityNotFoundException("Team not found!"));
 
         Player player = playerRepository.save(PlayerMapper.toPlayer(playerDTO, team));
+        return PlayerMapper.toDTO(player);
+    }
+
+    public List<Player> readPlayers(){
+        return playerRepository.findAll();
+    }
+
+    public PlayerDTO readPlayer(Long id){
+        Player player = playerRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found!"));
+
         return PlayerMapper.toDTO(player);
     }
 }
