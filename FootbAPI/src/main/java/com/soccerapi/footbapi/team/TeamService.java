@@ -25,6 +25,12 @@ public class TeamService {
         return teams.stream().map(TeamMapper::toDTO).collect(Collectors.toList());
     }
 
+    public TeamDTO readTeam(Long id){
+        Team team = teamRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Team not found!"));
+        return TeamMapper.toDTO(team);
+    }
+
     public List<TeamDTO> readTeamByName(String nameTeam){
         List<Team> teams = teamRepository.searchByNameTeamContaining(nameTeam);
         return teams.stream().map(TeamMapper::toDTO).collect(Collectors.toList());
