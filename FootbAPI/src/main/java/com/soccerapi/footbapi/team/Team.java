@@ -1,5 +1,6 @@
 package com.soccerapi.footbapi.team;
 
+import com.soccerapi.footbapi.match.Match;
 import com.soccerapi.footbapi.player.Player;
 import jakarta.persistence.*;
 
@@ -16,6 +17,12 @@ public class Team {
 
     @OneToMany(mappedBy = "team")
     private List<Player> players;
+
+    @OneToMany(mappedBy = "homeTeam")
+    private List<Match> homeTeamList;
+
+    @OneToMany(mappedBy = "awayTeam")
+    private List<Match> awayTeamList;
 
     public Team() {
     }

@@ -1,6 +1,9 @@
 package com.soccerapi.footbapi.competition;
 
+import com.soccerapi.footbapi.match.Match;
 import jakarta.persistence.*;
+
+import java.util.List;
 
 @Entity
 @Table(name = "competitions")
@@ -10,6 +13,9 @@ public class Competition {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idCompetition;
     private String nameCompetition;
+
+    @OneToMany(mappedBy = "competition")
+    private List<Match> matchList;
 
     public Long getIdCompetition() {
         return idCompetition;
