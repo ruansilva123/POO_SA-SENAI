@@ -180,3 +180,83 @@ Tutorial sobre as rotas e requisiões da API
       "message": "Player deleted successfully!"
     }
     ```
+
+---
+
+### COMPETITION
+ 
+- **Método:** `POST`
+- **Endpoint:** `/api/v1/competitions/`
+- **Corpo da Requisição:**
+    ```json
+    {
+      "nameCompetition": "competition_name"
+    }
+    ```
+- **Resposta:**
+    ```json
+    {
+      "message": "Competition created successfully!",
+      "object": {
+          "idCompetition": 1,
+          "namePlayer": "competition_name"
+      }
+    }
+    ```
+
+
+- **Método:** `GET`
+- **Endpoint:** `/api/v1/competitions/`
+- **Resposta:**
+    ```json
+    {
+      "objects": [
+          {
+              "idCompetition": 1,
+              "nameCompetition": "name_competition"
+          },
+          {
+              "idCompetition": 2,
+              "nameCompetition": "other_name_competition"
+          },
+       ]
+    }
+    ```
+
+- **Método:** `GET`
+- **Endpoint:** `/api/v1/competitions/1`
+- **Resposta:**
+    ```json
+    {
+      "object": {
+          "idCompetition": 1,
+          "nameCompetition": "name_competition"
+      }
+    }
+    ```
+
+- **Método:** `PUT`
+- **Endpoint:** `/api/v1/competitions/8`
+- **Corpo da Requisição:**
+    ```json
+    {
+      "nameCompetition": "edit_name_competition"
+    }
+    ```
+- **Resposta:**
+    ```json
+    {
+      "object": {
+          "idCompetition": 1,
+          "nameCompetition": "edit_name_competition"
+      }
+    }
+    ```
+
+
+- **Método:** `DELETE`
+- **Endpoint:** `/api/v1/competitions/1/`
+- **Resposta:**
+    ```
+    204 No Content
+    ```
