@@ -12,7 +12,7 @@ O objetivo desta API é realizar a manipulação e gerenciamento do histórico d
 
 ### 📋 Pré-requisitos
 
-Antes de executar o projeto, certifique-se de que os seguintes requisitos estão atendidos:
+Antes de executar o projeto, certifique-se de que os seguintes requisitos serão atendidos:
 
 #### 1. **Java 23+**
 
@@ -39,21 +39,86 @@ Para configurar o MySQL, siga a documentação oficial ou use o Docker para conf
 
 ### 🔧 Instalação
 
-Uma série de exemplos passo-a-passo que informam o que você deve executar para ter um ambiente de desenvolvimento em execução.
+Para executar a API em sua máquina local, siga os passos abaixo listados abaixo.
 
-Diga como essa etapa será:
-
+**1. Com o CMD ou uma IDE de sua preferência, navegue até a pasta onde o projeto será inserido:**
 ```
-Dar exemplos
+PS C:\Users\User\Documents\GitHub>
+```
+> ⚠️**Observação**: a IDE utilizada para este exemplo é o Visual Studio Code.
+
+**2. Logo após, execute o seguinte comando no terminal:**
+```
+git clone https://github.com/ruansilva123/POO_SA-SENAI.git
 ```
 
-E repita:
-
+**3. Acesse a pasta do projeto com o comando cd:**
 ```
-Até finalizar
+cd POO_SA-SENAI\FootbAPI
 ```
 
-Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
+**4. Dentro da pasta FootbAPI, crie um arquivo `.env` com o seguinte conteúdo:**
+
+- DATABASE_URL = "url-do-seu-banco"
+- DATABASE_USERNAME = "seu-nome-de-usuário"
+- DATABASE_PASSWORD = "sua-senha"
+
+Exemplo real:
+> DATABASE_URL = "jdbc:mysql://localhost:3306/footbapi"
+> 
+> DATABASE_USERNAME = "root"
+> 
+> DATABASE_PASSWORD = "root"
+
+> ⚠️**Observação**: o footbapi da DATABASE_URL é o nome do banco de dados, ele pode ser trocado caso necessário.
+
+**5. Agora que as variáveis foram definidas, é necessário criar o banco de dados, então execute o seguinte comando abaixo e logo após, insira sua senha:**
+```
+mysql -u <seu-nome-de-usuário> -p
+```
+
+**6. Após acessar o MySQL, execute o seguinte DDL:**
+```
+CREATE DATABASE footbapi;
+```
+
+**7. Para verificar se o banco foi criado corretamente, utilize o comando:**
+```
+SHOW DATABASES;
+```
+
+**8. Criado o banco de dados, feche o MySQL:**
+```
+EXIT
+```
+
+**9. Agora, com o banco de dados criado, execute o seguinte comando para instalar as dependências:**
+```
+mvn clean install
+```
+
+> ⚠️**Observação**:
+>
+> Ao executar o trecho acima, o projeto pode acusar erro na parte de testes, porém, as dependências são instaladas correatmente.
+>
+> Caso aja erro ao instalar as dependências que não está relacionado aos testes, execute o seguinte comando para forçar a instalação:
+> ```
+> mvn dependency:purge-local-repository
+> ```
+
+**10. Execute o comando abaixo para inicializar a aplicação:**
+```
+mvn spring-boot:run
+```
+
+**11. Por fim, em seu navegador use a URL http://localhost:8082/api/v1/competitions/ para testar a aplicação. Caso a resposta do servidor seja igual o exemplo abaixo, o servidor foi iniciado corretamente.**
+```json
+{
+  "objects":[]
+}
+```
+
+Pronto, agora você pode testar a API localmente em sua máquina.😃
 
 ## 🔗 Rotas
 
