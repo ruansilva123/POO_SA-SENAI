@@ -14,7 +14,7 @@ O objetivo desta API é realizar a manipulação e gerenciamento do histórico d
 - **Banco de dados MySQL**: Gerenciamento eficiente e persistência de dados utilizando MySQL;
 - **Documentação de API**: Integrada com Swagger (OpenAPI), acessível em: [Swagger UI - Documentação.](http://localhost:8082/api/v1/swagger-ui/index.html).
 
-## ✨ Funcionalidades futuras
+## ✨ Funcionalidades Futuras
 
 - **Autenticação e autorização**: Implementação de controle de acesso com Spring Security e JWT (JSON Web Tokens) para proteger os endpoints de manipulação de dados (POST, PUT e DELETE);
 - **Migrações**: Automação e controle de versões do esquema de banco de dados utilizando Liquibase.
