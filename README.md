@@ -12,7 +12,7 @@ O objetivo desta API é realizar a manipulação e gerenciamento do histórico d
 
 - **CRUD completo**: Permite criar, ler, atualizar e excluir jogadores, times, competições e partidas;
 - **Banco de dados MySQL**: Gerenciamento eficiente e persistência de dados utilizando MySQL;
-- **Documentação de API**: Integrada com Swagger (OpenAPI), acessível em: [Swagger UI - Documentação.](http://localhost:8082/api/v1/swagger-ui/index.html).
+- **Documentação de API**: Integrada com Swagger (OpenAPI), acessível em: [Swagger UI - Documentação](http://localhost:8082/api/v1/swagger-ui/index.html).
 
 ## ✨ Funcionalidades Futuras
 
