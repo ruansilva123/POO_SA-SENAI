@@ -116,7 +116,7 @@ mvn clean install
 >
 > Ao executar o trecho acima, o projeto pode acusar erro na parte de testes, porém, as dependências são instaladas correatmente.
 >
-> Caso aja erro ao instalar as dependências que não está relacionado aos testes, execute o seguinte comando para forçar a instalação:
+> Caso haja erro ao instalar as dependências que não está relacionado aos testes, execute o seguinte comando para forçar a instalação:
 > ```
 > mvn dependency:purge-local-repository
 > ```
