@@ -183,80 +183,137 @@ Tutorial sobre as rotas e requisiões da API
 
 ---
 
-### COMPETITION
+### MATCH
  
 - **Método:** `POST`
-- **Endpoint:** `/api/v1/competitions/`
+- **Endpoint:** `/api/v1/matches/`
 - **Corpo da Requisição:**
     ```json
     {
-      "nameCompetition": "competition_name"
+      "dateMatch": "2024-12-03",
+      "homeTeamGoals": 2,
+      "awayTeamGoals": 1,
+      "competition": 2,
+      "homeTeam": 5,
+      "awayTeam": 6
     }
     ```
 - **Resposta:**
     ```json
     {
-      "message": "Competition created successfully!",
+      "message": "Match created successfully!",
       "object": {
-          "idCompetition": 1,
-          "namePlayer": "competition_name"
+          "id": 1,
+          "dateMatch": "2024-12-03T00:00:00.000+00:00",
+          "homeTeamGols": 2,
+          "awayTeamGols": 1,
+          "competition": 2,
+          "homeTeam": 5,
+          "awayTeam": 6
       }
     }
     ```
 
 
 - **Método:** `GET`
-- **Endpoint:** `/api/v1/competitions/`
+- **Endpoint:** `/api/v1/matches/`
 - **Resposta:**
     ```json
     {
       "objects": [
-          {
-              "idCompetition": 1,
-              "nameCompetition": "name_competition"
-          },
-          {
-              "idCompetition": 2,
-              "nameCompetition": "other_name_competition"
-          },
-       ]
+        {
+            "id": 1,
+            "dateMatch": "2024-12-03T00:00:00.000+00:00",
+            "homeTeamGols": 2,
+            "awayTeamGols": 1,
+            "competition": {
+                "idCompetition": 1,
+                "nameCompetition": "name_competition"
+            },
+            "homeTeam": {
+                "id": 1,
+                "nameTeam": "name_team"
+            },
+            "awayTeam": {
+                "id": 2,
+                "nameTeam": "other_team"
+            }
+        },
+        {
+            "id": 2,
+            "dateMatch": "2024-12-03T00:00:00.000+00:00",
+            "homeTeamGols": 3,
+            "awayTeamGols": 3,
+            "competition": {
+                "idCompetition": 1,
+                "nameCompetition": "name_competition"
+            },
+            "homeTeam": {
+                "id": 4,
+                "nameTeam": "name_team"
+            },
+            "awayTeam": {
+                "id": 6,
+                "nameTeam": "other_team"
+            }
+        }
+      ]
     }
     ```
 
 - **Método:** `GET`
-- **Endpoint:** `/api/v1/competitions/1`
+- **Endpoint:** `/api/v1/matches/1`
 - **Resposta:**
     ```json
     {
+      "message": "Success to get match!",
       "object": {
-          "idCompetition": 1,
-          "nameCompetition": "name_competition"
+          "id": 1,
+          "dateMatch": "2024-12-03T00:00:00.000+00:00",
+          "homeTeamGols": 2,
+          "awayTeamGols": 1,
+          "competition": 2,
+          "homeTeam": 5,
+          "awayTeam": 6
       }
     }
     ```
 
 - **Método:** `PUT`
-- **Endpoint:** `/api/v1/competitions/8`
+- **Endpoint:** `/api/v1/matches/1`
 - **Corpo da Requisição:**
     ```json
     {
-      "nameCompetition": "edit_name_competition"
+      "dateMatch": "2024-12-03",
+      "homeTeamGoals": 2,
+      "awayTeamGoals": 1,
+      "competition": 2,
+      "homeTeam": 1,
+      "awayTeam": 2
     }
     ```
 - **Resposta:**
     ```json
     {
+      "message": "Success to edit!",
       "object": {
-          "idCompetition": 1,
-          "nameCompetition": "edit_name_competition"
+          "id": 1,
+          "dateMatch": "2024-12-03T00:00:00.000+00:00",
+          "homeTeamGols": 2,
+          "awayTeamGols": 1,
+          "competition": 2,
+          "homeTeam": 3,
+          "awayTeam": 10
       }
     }
     ```
 
 
 - **Método:** `DELETE`
-- **Endpoint:** `/api/v1/competitions/1/`
+- **Endpoint:** `/api/v1/matches/1/`
 - **Resposta:**
-    ```
-    204 No Content
+    ```json
+    {
+      "message": "Match deleted successfully!"
+    }
     ```
