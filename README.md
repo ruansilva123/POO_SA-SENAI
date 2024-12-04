@@ -1,8 +1,23 @@
 # FootbAPI
 
+![Java](https://img.shields.io/badge/java-23%2B-orange)
+![Maven](https://img.shields.io/badge/maven-3.9%2B-blue)
+![Spring](https://img.shields.io/badge/spring--boot-3.3.4-brightgreen)
+
 Este é um projeto desenvolvido no SENAI como parte da Situação de Aprendizagem (SA) da disciplina de Programação Orientada a Objetos (POO).
 
 O objetivo desta API é realizar a manipulação e gerenciamento do histórico de partidas de futebol, permitindo interações com tabelas de times, competições, jogadores e partidas. Este projeto foi desenvolvido utilizando Spring e Java, destacando conceitos de POO.
+
+## 📌 Funcionalidades Atuais
+
+- **CRUD completo**: Permite criar, ler, atualizar e excluir jogadores, times, competições e partidas;
+- **Banco de dados MySQL**: Gerenciamento eficiente e persistência de dados utilizando MySQL;
+- **Documentação de API**: Integrada com Swagger (OpenAPI), acessível em: [Swagger UI - Documentação.](http://localhost:8082/api/v1/swagger-ui/index.html).
+
+## ✨ Funcionalidades futuras
+
+- **Autenticação e autorização**: Implementação de controle de acesso com Spring Security e JWT (JSON Web Tokens) para proteger os endpoints de manipulação de dados (POST, PUT e DELETE);
+- **Migrações**: Automação e controle de versões do esquema de banco de dados utilizando Liquibase.
 
 ## 🚀 Começando
 
