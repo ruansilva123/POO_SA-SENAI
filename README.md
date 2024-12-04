@@ -12,11 +12,30 @@ O objetivo desta API é realizar a manipulação e gerenciamento do histórico d
 
 ### 📋 Pré-requisitos
 
-De que coisas você precisa para instalar o software e como instalá-lo?
+Antes de executar o projeto, certifique-se de que os seguintes requisitos estão atendidos:
 
-```
-Dar exemplos
-```
+#### 1. **Java 23+**
+
+É necessário instalar o **Java Development Kit (JDK)** versão 23 ou superior.
+
+- **Download do JDK:** [Baixar aqui](https://www.oracle.com/br/java/technologies/downloads/)  
+- **Guia de instalação:** [Saiba como instalar e configurar o JDK](https://www.devmedia.com.br/instalacao-e-configuracao-do-pacote-java-jdk/23749)
+
+#### 2. **Maven 3.9+**
+
+O projeto utiliza o Apache Maven (versão 3.9 ou superior) como ferramenta de gerenciamento de dependências e build.
+
+- **Download do Maven:** [Baixar aqui](https://maven.apache.org/download.cgi)  
+- **Guia de instalação:** [Saiba como instalar e configurar o Maven](https://maven.apache.org/install.html)
+
+#### 3. **MySQL 5.7+**
+
+Para configurar o MySQL, siga a documentação oficial ou use o Docker para configurar rapidamente uma instância de MySQL.
+
+- **Download do MySQL:** https://www.mysql.com/downloads/
+- **Documentação:** [MySQL Documentation](https://dev.mysql.com/doc/)
+
+> ⚠️**Observação**: a versão usada para desenvolvimento do projeto foi MySQL Community Server 8.3.0.
 
 ### 🔧 Instalação
 
@@ -36,66 +55,30 @@ Até finalizar
 
 Termine com um exemplo de como obter dados do sistema ou como usá-los para uma pequena demonstração.
 
-## ⚙️ Executando os testes
+## 🔗 Rotas
 
-Explicar como executar os testes automatizados para este sistema.
+Maiores informações sobre os endpoints do projeto podem ser encontradas em [ROUTES.md](https://github.com/ruansilva123/POO_SA-SENAI/blob/main/docs/ROUTES.md).
 
-### 🔩 Analise os testes de ponta a ponta
+## 🛠️ Dependências
 
-Explique que eles verificam esses testes e porquê.
+* [Spring Boot DevTools](https://docs.spring.io/spring-boot/docs/current/reference/html/using.html#using.devtools) - Ferramenta para facilitar o desenvolvimento, oferecendo hot reload e outras funcionalidades.
+* [dotenv-java](https://github.com/cdimascio/dotenv-java) - Biblioteca para carregar variáveis de ambiente a partir de um arquivo `.env`.
+* [Spring Boot Starter Data JPA](https://spring.io/projects/spring-data-jpa) - Starter do Spring Boot para integração com JPA e gerenciamento de banco de dados.
+* [MySQL Connector/J](https://dev.mysql.com/doc/connector-j/en/) - Driver JDBC para integração com o banco de dados MySQL.
+* [Spring Boot Starter Security](https://spring.io/projects/spring-security) - Starter do Spring Boot para implementar autenticação e autorização.
+* [Spring Security Test](https://docs.spring.io/spring-security/site/docs/current/reference/html5/#testing) - Ferramentas para testar configurações e funcionalidades de segurança.
+* [Lombok](https://projectlombok.org/) - Biblioteca que reduz o boilerplate no código, gerando automaticamente getters, setters e outros métodos.
+* [Springdoc OpenAPI Starter](https://springdoc.org/) - Integração para documentação de APIs usando OpenAPI (Swagger).
 
-```
-Dar exemplos
-```
+## 📌 Versão 1.0.0
 
-### ⌨️ E testes de estilo de codificação
-
-Explique que eles verificam esses testes e porquê.
-
-```
-Dar exemplos
-```
-
-## 📦 Implantação
-
-Adicione notas adicionais sobre como implantar isso em um sistema ativo
-
-## 🛠️ Construído com
-
-Mencione as ferramentas que você usou para criar seu projeto
-
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - O framework web usado
-* [Maven](https://maven.apache.org/) - Gerente de Dependência
-* [ROME](https://rometools.github.io/rome/) - Usada para gerar RSS
-
-## 🖇️ Colaborando
-
-Por favor, leia o [COLABORACAO.md](https://gist.github.com/usuario/linkParaInfoSobreContribuicoes) para obter detalhes sobre o nosso código de conduta e o processo para nos enviar pedidos de solicitação.
-
-## 📌 Versão
-
-Nós usamos [SemVer](http://semver.org/) para controle de versão. Para as versões disponíveis, observe as [tags neste repositório](https://github.com/suas/tags/do/projeto). 
+Este projeto segue o padrão de versionamento [SemVer](http://semver.org/) (Semantic Versioning).
 
 ## ✒️ Autores
 
-Mencione todos aqueles que ajudaram a levantar o projeto desde o seu início
-
-* **Um desenvolvedor** - *Trabalho Inicial* - [umdesenvolvedor](https://github.com/linkParaPerfil)
-* **Fulano De Tal** - *Documentação* - [fulanodetal](https://github.com/linkParaPerfil)
-
-Você também pode ver a lista de todos os [colaboradores](https://github.com/usuario/projeto/colaboradores) que participaram deste projeto.
+* **Gustavo Mafra Paluski** - *Desenvolvedor Backend* - [GitHub](https://github.com/gustavsonpy)
+* **Ruan Carlos da Silva** - *Desenvolvedor Backend* - [GitHub](https://github.com/ruansilva123)
 
 ## 📄 Licença
 
-Este projeto está sob a licença (sua licença) - veja o arquivo [LICENSE.md](https://github.com/usuario/projeto/licenca) para detalhes.
-
-## 🎁 Expressões de gratidão
-
-* Conte a outras pessoas sobre este projeto 📢;
-* Convide alguém da equipe para uma cerveja 🍺;
-* Um agradecimento publicamente 🫂;
-* etc.
-
-
----
-⌨️ com ❤️ por [Armstrong Lohãns](https://gist.github.com/lohhans) 😊
+Este projeto está sob a licença MIT - veja o arquivo [LICENSE.md](https://github.com/ruansilva123/POO_SA-SENAI/blob/main/LICENSE) para detalhes.
